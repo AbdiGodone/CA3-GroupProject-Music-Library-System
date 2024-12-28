@@ -1,9 +1,10 @@
 package WebPatterns.business;
-/**
- *
- * @author Julie
- */
+
 import lombok.*;
+/**
+ * @author Julie
+ *
+ */
 // Add getter methods
 @Getter
 // Add a toString method
