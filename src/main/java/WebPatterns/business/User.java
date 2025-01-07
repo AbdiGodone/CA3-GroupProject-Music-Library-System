@@ -15,16 +15,16 @@ import lombok.*;
 @Builder
 // Add an all-args constructor
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class User {
 
-    private int userid;
-    @NonNull
+    //private int userid;
+    @EqualsAndHashCode.Include
     private String username;
-    @NonNull
+    @ToString.Exclude
     private String password;
     private String firstname;
     private String lastname;
-    @NonNull
+    //@NonNull
     private String email;
 }
