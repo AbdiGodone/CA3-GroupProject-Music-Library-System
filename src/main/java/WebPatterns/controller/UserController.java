@@ -4,20 +4,17 @@ package WebPatterns.controller;
 import WebPatterns.business.User;
 import WebPatterns.persistence.UserDao;
 import WebPatterns.persistence.UserDaoImpl;
-import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.FileNotFoundException;
-
 @Slf4j
 @Controller
 public class UserController {
-    @PostMapping("registerUser")
-    public String registerUser(
+    @PostMapping("register")
+    public String register(
             @RequestParam(name="username") String username,
             @RequestParam(name="password") String password,
             @RequestParam(name="confpassword") String confpassword,
@@ -40,7 +37,9 @@ public class UserController {
         }
         if(errorMsg != null){
             model.addAttribute("errorMessage", errorMsg);
-            return  "registerUser";
+            //return  "registerUser";
+            //return  "register";
+            return "registration";
         }
         // Build new user with the detail entered in registration form
         User newUser = User.builder()
@@ -55,7 +54,7 @@ public class UserController {
         UserDao userDao = new UserDaoImpl("database.properties");
         boolean registered = userDao.register(newUser);
         if(registered){
-            String success = "Registeration Successful";
+            String success = "Registration Successful";
             model.addAttribute("message", success);
             return "index";
         }else{
@@ -64,7 +63,8 @@ public class UserController {
             String failed = "could not register at this time";
             model.addAttribute("errorMessage", failed);
         }
-        return "register";
+        //return "register";
+        return "registration";
     }
 
     /*=======================================================================================

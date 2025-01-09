@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!-- Define properties for use in the configuration -->
+    <!-- LOG_PATTERN for Console log -->
     <property name="LOG_PATTERN"
-              value="%blue(%d{yyyy-MM-dd HH:mm:ss}) %boldRed(%-5level) %logger{36} - %msg%n%ex{short}%n"/>
+           value="%blue(%d{yyyy-MM-dd HH:mm:ss}) %boldRed(%-5level) %logger{36} - %msg%n%ex{short}%n"/>
+    <!-- LOG_PATTERNF for application.log in logs package -->
+    <property name="LOG_PATTERNF"
+              value="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n%ex{short}%n"/>
     <property name="LOG_DIR" value="logs"/>
     <property name="LOG_FILE" value="application.log"/>
 
@@ -19,7 +23,7 @@
         <file>${LOG_DIR}/${LOG_FILE}</file>
         <append>false</append>
         <encoder>
-            <pattern>${LOG_PATTERN}</pattern>
+            <pattern>${LOG_PATTERNF}</pattern>
         </encoder>
     </appender>
 

@@ -1,18 +1,19 @@
 <!DOCTYPE HTML>
-<html lang="en" >
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Home...</title>
 
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-        <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" href="/styles.css" />
     </head>
     <body>
         <!-- Include the menu bar fragment -->
         <div th:replace="~{fragments/menu :: menu-bar}"></div>
+        <p th:if="${ message != null }" th:text="${message}"></p>
 
         <div>
-            Each menu option brings you to a dedicated area for that topic.<br/>
-            Menu bar has been included from a fragment file (menu.html)
+            Welcome to Music Library  <br/>
+
         </div>
     </body>
 </html>

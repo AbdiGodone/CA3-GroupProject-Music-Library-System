@@ -11,8 +11,8 @@ public class indexController {
         return "index";
     }
     @GetMapping("/registerPage")
-    public String register(){
-
-        return "register";
+    public String getRegister(){
+       // System.out.println("Testing );
+        return "registration";
     }
 }
